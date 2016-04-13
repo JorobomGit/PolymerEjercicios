@@ -6,32 +6,23 @@
 </head>
 
 <body>
-    <button id='btnU'>Boton Up</button>
-    <button id='btnD'>Boton Down</button>
+    <div id="host">
+    </div>
     <script type="text/javascript">
-    var clicked = 0;
-    document.querySelector('#btnU').addEventListener('click', function() {
-        clicked++;
-        console.log("clicked: ", clicked);
-    });
-    document.querySelector('#btnD').addEventListener('click', function() {
-        clicked--;
-        console.log("clicked: ", clicked);
-    });
-    </script>
-    
-    <button id='btnU'>Boton Up</button>
-    <button id='btnD'>Boton Down</button>
-    <script type="text/javascript">
-    var clicked = 0;
-    document.querySelector('#btnU').addEventListener('click', function() {
-        clicked++;
-        console.log("clicked: ", clicked);
-    });
-    document.querySelector('#btnD').addEventListener('click', function() {
-        clicked--;
-        console.log("clicked: ", clicked);
-    });
+	    var host = document.querySelector('#host');
+	    var root = host.createShadowRoot();
+	    var clicked = 0;
+
+	    root.innerHTML = "<button id='btnU'>Boton Up</button> <span id='clickedSpan'></span>        <button id='btnD'>Boton Down</button> <button id='btnU'>Boton Up</button> <span id='clickedSpan'></span>        <button id='btnD'>Boton Down</button>";
+
+	    root.querySelector('#btnU').addEventListener('click', function() {
+	        clicked++;
+	        root.getElementById("clickedSpan").innerHTML = clicked;
+	    });
+	    root.querySelector('#btnD').addEventListener('click', function() {
+	        clicked--;
+	        root.getElementById("clickedSpan").innerHTML = clicked;
+	    });
     </script>
 </body>
 
