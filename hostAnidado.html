@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+	antes del componente externo
+    <div id="outerHost">
+    	contenido del light dom
+    </div>
+    despues del componente externo
+    <script type="text/javascript">
+	    var outerHost = document.querySelector('#outerHost');
+	    var outerRoot = outerHost.createShadowRoot();
+
+	    outerRoot.innerHTML = 
+	    	'antes del componente interno' +
+	    	'<div id="innerHost"> Light DOM Interno </div>'+
+	    	'despues del componente interno';
+
+	    var innerHost = outerRoot.querySelector('#innerHost');
+	    var innerRoot = innerHost.createShadowRoot();
+	    innerRoot.innerHTML = "en el componente interno";
+    </script>
+</body>
+
+</html>

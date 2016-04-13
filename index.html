@@ -7,22 +7,23 @@
 
 <body>
     <div id="host">
+        contenido del light dom
     </div>
     <script type="text/javascript">
-	    var host = document.querySelector('#host');
-	    var root = host.createShadowRoot();
-	    var clicked = 0;
+    var host = document.querySelector('#host');
+    var root = host.createShadowRoot();
+    var clicked = 0;
 
-	    root.innerHTML = "<button id='btnU'>Boton Up</button> <span id='clickedSpan'></span>        <button id='btnD'>Boton Down</button> <button id='btnU'>Boton Up</button> <span id='clickedSpan'></span>        <button id='btnD'>Boton Down</button>";
+    root.innerHTML = "<button id='btnU'>Boton Up</button> <span id='clickedSpan'></span>        <button id='btnD'>Boton Down</button> <button id='btnU'>Boton Up</button> <span id='clickedSpan'></span>        <button id='btnD'>Boton Down</button>";
 
-	    root.querySelector('#btnU').addEventListener('click', function() {
-	        clicked++;
-	        root.getElementById("clickedSpan").innerHTML = clicked;
-	    });
-	    root.querySelector('#btnD').addEventListener('click', function() {
-	        clicked--;
-	        root.getElementById("clickedSpan").innerHTML = clicked;
-	    });
+    root.querySelector('#btnU').addEventListener('click', function() {
+        clicked++;
+        root.getElementById("clickedSpan").innerHTML = clicked;
+    });
+    root.querySelector('#btnD').addEventListener('click', function() {
+        clicked--;
+        root.getElementById("clickedSpan").innerHTML = clicked;
+    });
     </script>
 </body>
 
