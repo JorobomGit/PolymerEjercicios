@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="cart">
+        <div class="product">
+            <div class="name"> Gloves </div>
+            <div class="price"> 15 </div>
+        </div>
+        <div class="product">
+            <div class="name"> Orange </div>
+            <div class="price"> 35 </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    var host = document.querySelector('#cart');
+    var root = host.createShadowRoot();
+
+
+    root.innerHTML = "Name <content select='.product'> </content>";
+    </script>
+</body>
+
+</html>

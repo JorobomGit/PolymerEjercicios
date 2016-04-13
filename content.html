@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="host">
+        <div class="name">Juan</div>
+        <div class="twitter">JuanTwitter</div>
+    </div>
+
+    <div id="cart">
+    	<div class="food meat">Cow</div>
+    	<div class="dessert fruit">Orange</div>
+    	<div class="food fish">Cod</div>
+    	<div class="food fruit">Tomato</div>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+    var host = document.querySelector('#host');
+    var root = host.createShadowRoot();
+
+
+    root.innerHTML = "<div style='background-image: url(http://placehold.it/350x150)'>" + "Name <content select='.name'></content>" +
+        " Twitter <content select='.twitter'></content>" +
+        " </div>";
+    </script>
+
+    <script type="text/javascript">
+    var host = document.querySelector('#cart');
+    var root = host.createShadowRoot();
+
+
+    root.innerHTML = "Food <content select='.food.fish'> </content> <content select='.meat'> </content>";
+    </script>
+</body>
+
+</html>
