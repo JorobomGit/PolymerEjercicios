@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<template id="news">
+		<img src="">
+		<div class="body"></div>
+	</template>
+	<div id="new-1"></div>
+	<div id="new-2"></div>
+	<div id="new-3"></div>
+
+	<script type="text/javascript">
+		function createNew (container, image, body) {
+			 var root = document.querySelector(container).createShadowRoot();
+			 var template = document.querySelector('#news').content;
+
+			 template.querySelector("img").src = image;
+			 template.querySelector(".body").textContent = body;
+
+			 root.appendChild(template.cloneNode(true));
+		}
+		createNew("#new-1", "https://pbs.twimg.com/profile_images/2478399688/6gyep59fumb340ima588_normal.png", "IMAGEN 1");
+		createNew("#new-2", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Madrid-MetroLinea2.svg/45px-Madrid-MetroLinea2.svg.png", "IMAGEN 2");
+		createNew("#new-3", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Madrid-MetroLinea3.svg/45px-Madrid-MetroLinea3.svg.png", "IMAGEN 3");
+	</script>
+</body>
+</html>
