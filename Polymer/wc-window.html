@@ -1,0 +1,52 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-window">
+    <template id="window">
+        <style>
+        .window {
+            background: coral;
+        }
+        </style>
+        <div class="window">
+            <h1><div id="windowId"> {{ windowId }}</div></h1>
+            <div id="employee"> {{ employee }} </div>
+            <br>
+            <content></content>
+        </div>
+    </template>
+    <script>
+    (function() {
+        WCWindow = Polymer({
+            is: 'wc-window',
+            ready: function() {
+                console.log(this.getEffectiveChildren());
+                var movies = this.getEffectiveChildren();
+
+                for (var i = 0; i < movies.length; i++) {
+                    
+                    movies[i].addEventListener('click', function(e) {
+                        if (e.target.tagName == "BUTTON") {
+                            var ticket = new WCTicket();
+                            console.log(e.target.value);
+                            ticket.session = e.target.value;
+                            console.log(ticket.session);
+                            //this.innerHTML += ticket.innerHTML;
+                            /*Accedemos al kiosko*/
+                            console.log("Padre", this.parentNode.parentNode.parentNode);
+                        }
+                    });
+                }
+            },
+            properties: {
+                windowId: {
+                    type: String,
+                    value: 'Ventana 1'
+                },
+                employee: {
+                    type: String,
+                    value: 'Juan'
+                }
+            },
+        });
+    })();
+    </script>
+</dom-module>

@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <link rel="import" href="wc-window.html">
     <link rel="import" href="wc-movies.html">
+    <link rel="import" href="wc-ticket.html">
+    <link rel="import" href="wc-kiosko.html">
 </head>
+
 <body>
-	<wc-movies>Light DOM </wc-movies>
+    <wc-window>
+        <wc-movies title="Peli1"></wc-movies>
+        <wc-movies title="Peli2"></wc-movies>
+    </wc-window>
+    <wc-window>
+        <wc-movies title="Peli1"></wc-movies>
+    </wc-window>
+    <wc-window>
+        <wc-movies title="Peli3"></wc-movies>
+    </wc-window>
+	
+	<wc-kiosko></wc-kiosko>	
 </body>
+
 </html>

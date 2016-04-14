@@ -1,0 +1,40 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-ticket">
+    <template id="ticket">
+        <style>
+        .movie {
+            background: rgba(235, 100, 249, 1);
+            border-width: 15px;
+            text-align: center;
+        }
+        </style>
+        <div class="ticket">
+            <h1><div id="ticketId"> {{ ticketId }}</div></h1>
+            <div id="description"> {{ description }} </div>
+            <div id="session"> {{ session }}</div>
+            <br>
+        </div>
+    </template>
+    <script>
+    (function() {
+         WCTicket = Polymer({
+            is: 'wc-ticket',
+            ready: function() {},
+            properties: {
+                ticketId: {
+                    type: String,
+                    value: 'Ticket 1'
+                },
+                description: {
+                    type: String,
+                    value: 'Description'
+                },
+                session: {
+                    type: String,
+                    value: 'Session'
+                }
+            },
+        });
+    })();
+    </script>
+</dom-module>
