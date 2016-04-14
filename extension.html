@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<meta charset="utf-8">
+	<link rel="import" href="wc-news.html">
 </head>
 <body>
 
@@ -14,23 +15,6 @@
         <wc-news-name>Juan</wc-news-name>
         <wc-news-twitter>JuanTwitter</wc-news-twitter>
     </wc-news>
-
-    <script type="text/javascript">
-    	var p = Object.create(HTMLElement.prototype);
-    	p.createdCallback = function(){
-			 var root = this.createShadowRoot();
-			 var template = document.querySelector('#news').content;
-
-			 template.querySelector("h1").textContent = this.querySelector('wc-news-name').textContent;
-			 template.querySelector("p").textContent = this.querySelector('wc-news-twitter').textContent;
-
-			 root.appendChild(template.cloneNode(true));
-    	};
-    	var news = document.registerElement(
-    		'wc-news', {
-    		prototype: p
-    	});
-    </script>
-
+    
 </body>
 </html>
