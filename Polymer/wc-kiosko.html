@@ -4,6 +4,7 @@
         <style>
         .kiosko {
             background: brown;
+            text-align: center;
         }
         </style>
         <div class="kiosko">
@@ -26,18 +27,16 @@
                 },
                 tickets: {
                     type: Array,
-                    value: function(){
-                        return tickets;
-                    }
+                    observer: 'getTickets()'
                 }
             },
             addTicket: function(ticket) {
-                console.log("Ticket::" , ticket);
+                console.log("Ticket::", ticket);
                 tickets.push(ticket);
                 this.$.tickets.appendChild(ticket);
             },
 
-            getTickets: function(){
+            getTickets: function() {
                 return tickets;
             }
         });

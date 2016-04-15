@@ -1,0 +1,36 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-text">
+    <template id="text">
+        <style>
+
+        </style>
+        <div class="text">
+            <wc-window kiosko="{{ kiosko }}" employee="Rosa" windowId="Ventanilla 1">
+                <wc-movies title="Whiplash"></wc-movies>
+                <wc-movies title="Avengers"></wc-movies>
+            </wc-window>
+            <wc-window kiosko="{{ kiosko }}" employee="Pepe" windowId="Ventanilla 2">
+                <wc-movies title="Kung-FuPanda"></wc-movies>
+            </wc-window>
+            <wc-window kiosko="{{ kiosko }}" employee="Mario" windowId="Ventanilla 3">
+                <wc-movies title="Avengers"></wc-movies>
+            </wc-window>
+            <wc-kiosko id="kiosko1"></wc-kiosko>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-text',
+            ready: function() {
+                this.kiosko = this.$.kiosko1
+            },
+            properties: {
+                kiosko: {
+                    type: WCKiosko
+                }
+            },
+        });
+    })();
+    </script>
+</dom-module>

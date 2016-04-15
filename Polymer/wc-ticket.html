@@ -2,28 +2,34 @@
 <dom-module id="wc-ticket">
     <template id="ticket">
         <style>
-        .movie {
-            background: rgba(235, 100, 249, 1);
+        .ticket {
+            background: rgba(255,255,255,1);
+            border-style: inset;
             border-width: 15px;
             text-align: center;
         }
         </style>
         <div class="ticket">
-            <h1><div id="ticketId"> {{ ticketId }}</div></h1>
+            <h2><div id="ticketId"> {{ ticketId }}</div></h2>
+            <h3><div id="title"> {{ title }} </div>
+            <div id="session"> {{ session }}</div></h3>
             <div id="description"> {{ description }} </div>
-            <div id="session"> {{ session }}</div>
             <br>
         </div>
     </template>
     <script>
     (function() {
-         WCTicket = Polymer({
+        WCTicket = Polymer({
             is: 'wc-ticket',
             ready: function() {},
             properties: {
                 ticketId: {
                     type: String,
                     value: 'Ticket 1'
+                },
+                title: {
+                    type: String,
+                    value: 'Peli'
                 },
                 description: {
                     type: String,

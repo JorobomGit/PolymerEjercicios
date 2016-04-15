@@ -3,42 +3,29 @@
     <template id="window">
         <style>
         .window {
-            background: coral;
+            background: rgba(169, 3, 41, 1);
+            text-align: center;
         }
         </style>
         <div class="window">
             <h1><div id="windowId"> {{ windowId }}</div></h1>
-            <div id="employee"> {{ employee }} </div>
+            <h2><div id="employee">Le atiende {{ employee }} </div></h2> Cartelera:
             <br>
             <content></content>
         </div>
     </template>
     <script>
     (function() {
+        var ticketId = 0;
         WCWindow = Polymer({
             is: 'wc-window',
+            listeners: {
+                'wc-movie-session': 'btnSession'
+            },
             ready: function() {
-                console.log(this.getEffectiveChildren());
-                var movies = this.getEffectiveChildren();
-                var ticketId = 0;
-                for (var i = 0; i < movies.length; i++) {
-                    movies[i].addEventListener('click', function(e) {
-                        console.log(e.target);
-                        if (e.target.tagName == "BUTTON") {
-                            ticketId++;
-                            var ticket = new WCTicket();
-                            ticket.ticketId = "Ticket ID: " + ticketId;
-                            ticket.session = e.target.value;
-                            
-                            /*Accedemos a los tickets*/
-                            console.log(this.kiosko);
-                            this.parentNode.querySelector("#"+this.kiosko).addTicket(ticket);
-                        }
-                    }.bind(this)
-
-                    );
-
-                }
+                console.log("Ejercicio 3.06");
+                console.log("HIJOSA: ", Polymer.dom(this).children);
+                console.log("HIJOSB: ", Polymer.dom(this).getEffectiveChildNodes());
             },
             properties: {
                 windowId: {
@@ -54,6 +41,18 @@
                     value: '0'
                 }
             },
+            btnSession: function(e) {
+                console.log("Evento: ", e);
+                var ticket = new WCTicket();
+                ticketId++;
+                ticket.ticketId = "Ticket ID: " + ticketId;
+                ticket.title = e.target.title;
+                ticket.description = e.detail.description;
+                ticket.session = e.target.session;
+                /*Accedemos a los tickets*/
+                console.log(this.kiosko);
+                this.kiosko.addTicket(ticket);
+            }
         });
     })();
     </script>

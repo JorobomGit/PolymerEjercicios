@@ -7,6 +7,7 @@
             border-style: double;
             border-width: 15px;
             text-align: center;
+            display: inline-block;
             width: 30%;
         }
         </style>
@@ -17,14 +18,14 @@
             <div id="year"> {{ year }}</div>
             <div id="description"> {{ description }} </div>
             <div id="code"> {{ code }} </div>
-            <button id="btn1" value="{{ btn1 }}"> {{ btn1 }} </button>
-            <button id="btn2" value="{{ btn2 }}"> {{ btn2 }} </button>
-            <button id="btn3" value="{{ btn3 }}"> {{ btn3 }} </button>
+            <button id="btn1" value="{{ btn1 }}" on-tap="onBtnTap"> {{ btn1 }} </button>
+            <button id="btn2" value="{{ btn2 }}" on-tap="onBtnTap"> {{ btn2 }} </button>
+            <button id="btn3" value="{{ btn3 }}" on-tap="onBtnTap"> {{ btn3 }} </button>
         </div>
     </template>
     <script>
     (function() {
-         WCMovies = Polymer({
+        WCMovies = Polymer({
             is: 'wc-movies',
             ready: function() {},
             properties: {
@@ -69,6 +70,11 @@
 
             getCode: function(title, year) {
                 return title[0] + title[1] + year[0] + year[1];
+            },
+
+            onBtnTap: function(e) {
+                this.session = e.target.value;
+                this.fire("wc-movie-session", this);
             }
         });
     })();
