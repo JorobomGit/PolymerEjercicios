@@ -20,20 +20,24 @@
             ready: function() {
                 console.log(this.getEffectiveChildren());
                 var movies = this.getEffectiveChildren();
-
+                var ticketId = 0;
                 for (var i = 0; i < movies.length; i++) {
-                    
                     movies[i].addEventListener('click', function(e) {
+                        console.log(e.target);
                         if (e.target.tagName == "BUTTON") {
+                            ticketId++;
                             var ticket = new WCTicket();
-                            console.log(e.target.value);
+                            ticket.ticketId = "Ticket ID: " + ticketId;
                             ticket.session = e.target.value;
-                            console.log(ticket.session);
-                            //this.innerHTML += ticket.innerHTML;
-                            /*Accedemos al kiosko*/
-                            console.log("Padre", this.parentNode.parentNode.parentNode);
+                            
+                            /*Accedemos a los tickets*/
+                            console.log(this.kiosko);
+                            this.parentNode.querySelector("#"+this.kiosko).addTicket(ticket);
                         }
-                    });
+                    }.bind(this)
+
+                    );
+
                 }
             },
             properties: {
@@ -44,6 +48,10 @@
                 employee: {
                     type: String,
                     value: 'Juan'
+                },
+                kiosko: {
+                    type: String,
+                    value: '0'
                 }
             },
         });

@@ -3,32 +3,43 @@
     <template id="kiosko">
         <style>
         .kiosko {
-            background: green;
+            background: brown;
         }
         </style>
         <div class="kiosko">
             <h1><div id="kioskoId"> {{ kioskoId }}</div></h1>
-            <div id="tickets"> {{ tickets }} </div>
+            <h2><div id="tickets"> {{ tickets }} </div></h2>
             <br>
             <content></content>
         </div>
     </template>
     <script>
     (function() {
-         WCKiosko = Polymer({
+        var tickets = [];
+        WCKiosko = Polymer({
             is: 'wc-kiosko',
-            ready: function() {
-            },
+            ready: function() {},
             properties: {
                 kioskoId: {
                     type: String,
                     value: 'Kiosko 1'
                 },
                 tickets: {
-                    type: String,
-                    value: 'Ticket'
+                    type: Array,
+                    value: function(){
+                        return tickets;
+                    }
                 }
             },
+            addTicket: function(ticket) {
+                console.log("Ticket::" , ticket);
+                tickets.push(ticket);
+                this.$.tickets.appendChild(ticket);
+            },
+
+            getTickets: function(){
+                return tickets;
+            }
         });
     })();
     </script>
