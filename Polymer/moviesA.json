@@ -1,4 +1,4 @@
-moviesFile = [{
+moviesA = [{
     "title": "Whiplash",
     "poster": "https://s-media-cache-ak0.pinimg.com/236x/db/2a/68/db2a68f893b323d0d5016f08f70341d4.jpg",
     "author": "Damien Chazelle",
@@ -11,6 +11,4 @@ moviesFile = [{
     "author": "Damien Chazelle",
     "year": "19-02-2027",
     "description": "Avengers description."
-},
-{
 }];

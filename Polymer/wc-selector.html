@@ -1,0 +1,39 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-selector">
+    <template id="selector">
+        <div class="text">
+            <button on-tap="onTap">Cambiar</button>
+            <content></content>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-selector',
+            ready: function() {
+                /*Inicializamos movies*/
+                this.data = Polymer.dom(this).children[this.selected].movies;
+            },
+            properties: {
+                data: {
+                    type: Array,
+                    notify: true
+                },
+                selected: {
+                    type: Number,
+                    value: 0
+                },
+                key: {
+                    type: String
+                }
+            },
+            onTap: function() {
+                console.log("onTap");
+                this.selected = (this.selected+1)%Polymer.dom(this).children.length
+                this.data = Polymer.dom(this).children[this.selected][this.key];
+                console.log("Data: ", this.data );
+            }
+        });
+    })();
+    </script>
+</dom-module>

@@ -7,17 +7,24 @@
             is: 'wc-cinema',
             ready: function() {
                 /*Logica para obtener peliculas*/
-                console.log("Peliculas", moviesFile);
-                this.movies = moviesFile;
-                console.log("PELIIIIS: ", this.movies);
+                console.log("Peliculas de cinema: ", this.fileMovie);
+                if (this.fileMovie === 'A') {
+                    this.movies = moviesA;
+                } else if (this.fileMovie === 'B'){
+                    this.movies = moviesB;
+                } else {
+                    this.movies = moviesC;
+                }
             },
             properties: {
                 movies: {
                     type: Array,
-                    value: 'Movies',
                     notify: true
+                },
+                fileMovie: {
+                    type: String
                 }
-            },
+            }
         });
     })();
     </script>

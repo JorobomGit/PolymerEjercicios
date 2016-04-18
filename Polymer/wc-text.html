@@ -5,11 +5,13 @@
 
         </style>
         <div class="text">
-            <wc-cinema movies="{{movies}}"></wc-cinema>
-            {{ movies }}
+            <wc-selector data="{{movies}}" key="movies">
+                <wc-cinema movies="{{mv1}}" file-movie="A"></wc-cinema>
+                <wc-cinema movies="{{mv2}}" file-movie="B"></wc-cinema>
+                <wc-cinema movies="{{mv3}}" file-movie="C"></wc-cinema>
+            </wc-selector>
             <wc-window kiosko="{{ kiosko }}" movies="[[movies]]" employee="Pedro">
             </wc-window>
-
             <wc-kiosko id="kiosko1"></wc-kiosko>
         </div>
     </template>
@@ -18,13 +20,13 @@
         Polymer({
             is: 'wc-text',
             ready: function() {
-                this.kiosko = this.$.kiosko1
+                this.kiosko = this.$.kiosko1;
             },
             properties: {
                 kiosko: {
                     type: Object
                 }
-            },
+            }
         });
     })();
     </script>
