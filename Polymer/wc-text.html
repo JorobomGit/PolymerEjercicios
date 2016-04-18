@@ -5,16 +5,11 @@
 
         </style>
         <div class="text">
-            <wc-window kiosko="{{ kiosko }}" employee="Rosa" windowId="Ventanilla 1">
-                <wc-movies title="Whiplash"></wc-movies>
-                <wc-movies title="Avengers"></wc-movies>
+            <wc-cinema movies="{{movies}}"></wc-cinema>
+            {{ movies }}
+            <wc-window kiosko="{{ kiosko }}" movies="[[movies]]" employee="Pedro">
             </wc-window>
-            <wc-window kiosko="{{ kiosko }}" employee="Pepe" windowId="Ventanilla 2">
-                <wc-movies title="Kung-FuPanda"></wc-movies>
-            </wc-window>
-            <wc-window kiosko="{{ kiosko }}" employee="Mario" windowId="Ventanilla 3">
-                <wc-movies title="Avengers"></wc-movies>
-            </wc-window>
+
             <wc-kiosko id="kiosko1"></wc-kiosko>
         </div>
     </template>
@@ -27,7 +22,7 @@
             },
             properties: {
                 kiosko: {
-                    type: WCKiosko
+                    type: Object
                 }
             },
         });

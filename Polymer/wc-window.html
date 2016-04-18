@@ -9,9 +9,13 @@
         </style>
         <div class="window">
             <h1><div id="windowId"> {{ windowId }}</div></h1>
-            <h2><div id="employee">Le atiende {{ employee }} </div></h2> Cartelera:
-            <br>
-            <content></content>
+            <h2><div id="employee">Le atiende {{ employee }} </div></h2>
+            <h3>Cartelera:</h3>
+            <template is="dom-repeat" items="{{movies}}">
+                <wc-movies title="{{ item.title }}" poster="{{ item.poster }}"></wc-movies>
+                <br>
+                <content></content>
+            </template>
         </div>
     </template>
     <script>
@@ -26,6 +30,7 @@
                 console.log("Ejercicio 3.06");
                 console.log("HIJOSA: ", Polymer.dom(this).children);
                 console.log("HIJOSB: ", Polymer.dom(this).getEffectiveChildNodes());
+                console.log("Pelis de window:", this.movies);
             },
             properties: {
                 windowId: {
@@ -39,6 +44,10 @@
                 kiosko: {
                     type: String,
                     value: '0'
+                },
+                movies: {
+                    type: Array,
+                    notify: true
                 }
             },
             btnSession: function(e) {

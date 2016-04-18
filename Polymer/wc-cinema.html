@@ -1,0 +1,24 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-cinema">
+    <script>
+    (function() {
+        var tickets = [];
+        WCCinema = Polymer({
+            is: 'wc-cinema',
+            ready: function() {
+                /*Logica para obtener peliculas*/
+                console.log("Peliculas", moviesFile);
+                this.movies = moviesFile;
+                console.log("PELIIIIS: ", this.movies);
+            },
+            properties: {
+                movies: {
+                    type: Array,
+                    value: 'Movies',
+                    notify: true
+                }
+            },
+        });
+    })();
+    </script>
+</dom-module>
