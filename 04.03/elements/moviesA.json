@@ -1,0 +1,14 @@
+moviesA = [{
+    "title": "Whiplash",
+    "poster": "https://s-media-cache-ak0.pinimg.com/236x/db/2a/68/db2a68f893b323d0d5016f08f70341d4.jpg",
+    "author": "Damien Chazelle",
+    "year": "19-02-2027",
+    "description": "Whiplash is a 2014 American independent drama film written and directed by Damien Chazelle. Starring Miles Teller and J. K. Simmons, the film depicts the relationship between an ambitious jazz student (Teller) and an abusive instructor (Simmons). Paul Reiser and Melissa Benoist co-star as the students father and love interest respectively. The film opened in limited release domestically in the US and Canada on October 10, 2014, gradually expanding to over 500 screens and finally closing after 24 weeks on March 26, 2015. Over this time the film grossed $49 million, against a production budget of $3.3 million."
+},
+{
+    "title": "Avengers",
+    "poster": "http://edgecast.buscafs.com/www.tomatazos.com/public/uploads/images/28725.jpg",
+    "author": "Damien Chazelle",
+    "year": "19-02-2027",
+    "description": "Avengers description."
+}];

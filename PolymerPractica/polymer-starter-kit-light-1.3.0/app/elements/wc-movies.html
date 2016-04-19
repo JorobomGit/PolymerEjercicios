@@ -1,0 +1,81 @@
+<dom-module id="wc-movies">
+    <template id="movies">
+        <style>
+        .movie {
+            background: rgba(235, 233, 249, 1);
+            border-style: double;
+            border-width: 15px;
+            text-align: center;
+            display: inline-block;
+            width: 30%;
+        }
+        </style>
+        <div class="movie">
+            <h1><div id="title"> {{ title }}</div></h1>
+            <img id="poster" src=" {{ poster }}">
+            <div id="author"> {{ author }} </div>
+            <div id="year"> {{ year }}</div>
+            <div id="description"> {{ description }} </div>
+            <div id="code"> {{ code }} </div>
+            <button id="btn1" value="{{ btn1 }}" on-tap="onBtnTap"> {{ btn1 }} </button>
+            <button id="btn2" value="{{ btn2 }}" on-tap="onBtnTap"> {{ btn2 }} </button>
+            <button id="btn3" value="{{ btn3 }}" on-tap="onBtnTap"> {{ btn3 }} </button>
+        </div>
+    </template>
+    <script>
+    (function() {
+        WCMovies = Polymer({
+            is: 'wc-movies',
+            ready: function() {},
+            properties: {
+                title: {
+                    type: String,
+                    value: 'Whiplash'
+                },
+                poster: {
+                    type: String,
+                    value: 'https://s-media-cache-ak0.pinimg.com/236x/db/2a/68/db2a68f893b323d0d5016f08f70341d4.jpg'
+                },
+                author: {
+                    type: String,
+                    value: 'Damien Chazelle'
+                },
+                year: {
+                    type: Date,
+                    value: '19-02-2027'
+                },
+                description: {
+                    type: String,
+                    value: 'Whiplash is a 2014 American independent drama film written and directed by Damien Chazelle. Starring Miles Teller and J. K. Simmons, the film depicts the relationship between an ambitious jazz student (Teller) and an abusive instructor (Simmons). Paul Reiser and Melissa Benoist co-star as the students father and love interest respectively. The film opened in limited release domestically in the US and Canada on October 10, 2014, gradually expanding to over 500 screens and finally closing after 24 weeks on March 26, 2015. Over this time the film grossed $49 million, against a production budget of $3.3 million.'
+                },
+                btn1: {
+                    type: String,
+                    value: '18:00'
+                },
+                btn2: {
+                    type: String,
+                    value: '20:00'
+                },
+                btn3: {
+                    type: String,
+                    value: '22:00'
+                },
+                code: {
+                    type: String,
+                    readOnly: true,
+                    computed: 'getCode(title, year)'
+                }
+            },
+
+            getCode: function(title, year) {
+                return title[0] + title[1] + year[0] + year[1];
+            },
+
+            onBtnTap: function(e) {
+                this.session = e.target.value;
+                this.fire("wc-movie-session", this);
+            }
+        });
+    })();
+    </script>
+</dom-module>
